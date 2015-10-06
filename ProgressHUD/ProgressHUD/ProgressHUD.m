@@ -257,6 +257,11 @@
 	else heightKeyboard = [self keyboardHeight];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	CGRect screen = [UIScreen mainScreen].bounds;
+	
+	if ([[[UIApplication sharedApplication] windows] firstObject]) {
+        screen = [[[[UIApplication sharedApplication] windows] firstObject] bounds];
+    }
+	
 	CGPoint center = CGPointMake(screen.size.width/2, (screen.size.height-heightKeyboard)/2);
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
